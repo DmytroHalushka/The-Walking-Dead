@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+    background-image: url('images/hershel-house.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Oswald', sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    margin-top: 200px;
+    color: rgba(56, 56, 21, 1);
+    -webkit-text-stroke: 1px rgba(252, 253, 248, 1);
+}
+.character-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 200px;
+    color: rgba(56, 56, 21, 1);
+    -webkit-text-stroke: 1px rgba(252, 253, 248, 1);
+}
+.character-list h2 {
+    transition: 1.5s;
+}
+.character-list:hover h2 {
+    transform: translateY(15px) ;
+}
+.main-characters {
+    box-shadow: 5px 5px 3px 2px black;
+    border-radius: 30px;
+}
+.villains {
+    box-shadow: 5px 5px 3px 2px black;
+    border-radius: 30px;
+}
+.main-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgba(56, 56, 21, 1);
+    -webkit-text-stroke: 1px rgba(252, 253, 248, 1);
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: color 1s ease, -webkit-text-stroke 1s ease;
+}
+.main-button:hover {
+    color: rgba(252, 253, 248, 1);
+    -webkit-text-stroke: 1px rgba(56, 56, 21, 1);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
