@@ -7,7 +7,7 @@ let characters = [
     modal_eye_color: "Карі",
     modal_hair_color: "Темно-русявий",
     modal_weapon: "Револьвер",
-    modal_work: "Лідер громади",
+    modal_work: "Колишній коп",
     modal_actor: "Ендрю Лінкольн",
   },
   {
@@ -29,7 +29,7 @@ let characters = [
     modal_eye_color: "Карі",
     modal_hair_color: "Чорні",
     modal_weapon: "Катана",
-    modal_work: "Воєнна радниця",
+    modal_work: "Юристка",
     modal_actor: "Даніай Ґуріра",
   },
   {
@@ -40,7 +40,7 @@ let characters = [
     modal_eye_color: "Сірі",
     modal_hair_color: "Світло-русяве",
     modal_weapon: "Пістолет",
-    modal_work: "Захисниця громади",
+    modal_work: "Домогосподарка",
     modal_actor: "Мелісса МакБрайд",
   },
   {
@@ -51,7 +51,7 @@ let characters = [
     modal_eye_color: "Блакитні",
     modal_hair_color: "Каштанове",
     modal_weapon: "Пістолет",
-    modal_work: "Син Ріка",
+    modal_work: "Нема",
     modal_actor: "Чандлер Ріггз",
   },
   {
@@ -62,7 +62,7 @@ let characters = [
     modal_eye_color: "Карі",
     modal_hair_color: "Чорні",
     modal_weapon: "Пістолет",
-    modal_work: "Постачальник",
+    modal_work: "Кур'єр",
     modal_actor: "Стівен Юн",
   },
   {
@@ -73,7 +73,7 @@ let characters = [
     modal_eye_color: "Зелені",
     modal_hair_color: "Каштанове",
     modal_weapon: "Пістолет",
-    modal_work: "Лідер Хілтопу",
+    modal_work: "Фермер",
     modal_actor: "Лорен Коен",
   },
   {
@@ -93,28 +93,26 @@ let modal = document.getElementById("modal");
 let openBtns = document.querySelectorAll(".more-info-button");
 let closeBtn = document.getElementById("close-modal");
 
+const fields = [
+  "modal_name",
+  "modal_gender",
+  "modal_location",
+  "modal_status",
+  "modal_eye_color",
+  "modal_hair_color",
+  "modal_weapon",
+  "modal_work",
+  "modal_actor",
+];
+
 openBtns.forEach((btn, index) => {
   btn.addEventListener("click", function () {
     modal.style.display = "flex";
 
-    modal.querySelector(".modal_name").innerHTML =
-      characters[index].modal_name;
-    modal.querySelector(".modal_gender").innerHTML =
-      characters[index].modal_gender;
-    modal.querySelector(".modal_location").innerHTML =
-      characters[index].modal_location;
-    modal.querySelector(".modal_status").innerHTML =
-      characters[index].modal_status;
-    modal.querySelector(".modal_eye_color").innerHTML =
-      characters[index].modal_eye_color;
-    modal.querySelector(".modal_hair_color").innerHTML =
-      characters[index].modal_hair_color;
-    modal.querySelector(".modal_weapon").innerHTML =
-      characters[index].modal_weapon;
-    modal.querySelector(".modal_work").innerHTML =
-      characters[index].modal_work;
-    modal.querySelector(".modal_actor").innerHTML =
-      characters[index].modal_actor;
+    fields.forEach(field => {
+  modal.querySelector(`.${field}`).innerHTML = characters[index][field];
+});
+
   });
 });
 closeBtn.addEventListener("click", function () {
