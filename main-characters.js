@@ -90,8 +90,10 @@ let characters = [
 ];
 
 let modal = document.getElementById("modal");
+let modal_content = document.querySelector(".modal-content")
 let openBtns = document.querySelectorAll(".more-info-button");
 let closeBtn = document.getElementById("close-modal");
+let TWD = document.querySelectorAll(".TWD")
 
 const fields = [
   "modal_name",
@@ -106,20 +108,27 @@ const fields = [
 ];
 
 openBtns.forEach((btn, index) => {
-  btn.addEventListener("click", function () {
-    modal.style.display = "flex";
+  btn.addEventListener("click", () => {
+    // Заповнюємо модалку відповідними даними
+    fields.forEach((field) => {
+      document.querySelector(`.${field}`).textContent = characters[index][field];
+    });
 
-    fields.forEach(field => {
-  modal.querySelector(`.${field}`).innerHTML = characters[index][field];
-});
-
+    modal.classList.remove("hidden");
+    setTimeout(() => modal_content.classList.add("active"), 10);
   });
 });
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
+
+// Закриття модалки
+closeBtn.addEventListener("click", () => {
+  modal_content.classList.remove("active");
+  setTimeout(() => modal.classList.add("hidden"), 500);
 });
-modal.addEventListener("click", function (e) {
+
+// Закриття по кліку на фон
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
-    modal.style.display = "none";
+    modal_content.classList.remove("active");
+    setTimeout(() => modal.classList.add("hidden"), 500);
   }
 });
