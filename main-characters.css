@@ -51,6 +51,20 @@ body {
   max-width: 320px; /* або бажана ширина */
   margin: 20px auto;
   position: relative;
+  animation: glowFadeSlideDown 1s ease-out forwards;
+}
+@keyframes glowFadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+    box-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 4px 12px black;
+    border-radius: 30px;
+  }
 }
 .TWD img {
   width: 100%;
