@@ -37,7 +37,7 @@ let characters = [
     modal_gender: "Жіночий",
     modal_location: "Александрія",
     modal_status: "Жива",
-    modal_eye_color: "Сірі",
+    modal_eye_color: "Блакитні",
     modal_hair_color: "Світло-русяве",
     modal_weapon: "Пістолет",
     modal_work: "Домогосподарка",
@@ -51,7 +51,7 @@ let characters = [
     modal_eye_color: "Блакитні",
     modal_hair_color: "Каштанове",
     modal_weapon: "Пістолет",
-    modal_work: "Нема",
+    modal_work: "Немає",
     modal_actor: "Чандлер Ріггз",
   },
   {
@@ -79,7 +79,7 @@ let characters = [
   {
     modal_name: "Шейн Волш",
     modal_gender: "Чоловічий",
-    modal_location: "Будинок Герше́ля",
+    modal_location: "Будинок Херше́ла",
     modal_status: "Мертвий",
     modal_eye_color: "Карі",
     modal_hair_color: "Темно-каштанове",

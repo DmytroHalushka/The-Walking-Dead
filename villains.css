@@ -183,8 +183,9 @@ p {
   align-items: center;
   z-index: 1000; /* щоб модальне вікно було поверх інших елементів */
 }
+
 .modal-content {
-  position: relative;
+  position: absolute;
   background-color: black;
   color: white;
   border-radius: 30px;
@@ -192,6 +193,12 @@ p {
   width: 300px;
   max-height: 80vh;
   overflow-y: auto; /* Додаємо прокрутку, якщо контент перевищує висоту */
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.5s ease-out, opacity 0.5s ease;
+}
+.modal-content.active {
+  transform: scale(1);
 }
 #close-modal {
   position: absolute;

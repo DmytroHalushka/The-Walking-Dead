@@ -35,7 +35,7 @@ const characters = [
     {
       modal_name: "Альфа",
       modal_gender: "Жіночий",
-      modal_location: "Ніснус",
+      modal_location: "Не існує",
       modal_status: "Мертва",
       modal_eye_color: "Блакитні",
       modal_hair_color: "Лисі",
@@ -68,38 +68,45 @@ const characters = [
   ];
 
 let modal = document.getElementById("modal");
+let modal_content = document.querySelector(".modal-content")
 let openBtns = document.querySelectorAll(".more-info-button");
-let closeBtn = document.querySelector("#close-modal");
+let closeBtn = document.getElementById("close-modal");
+let TWD = document.querySelectorAll(".TWD")
+
+const fields = [
+  "modal_name",
+  "modal_gender",
+  "modal_location",
+  "modal_status",
+  "modal_eye_color",
+  "modal_hair_color",
+  "modal_weapon",
+  "modal_work",
+  "modal_actor",
+];
 
 openBtns.forEach((btn, index) => {
-  btn.addEventListener("click", function () {
-    modal.style.display = "flex";
+  btn.addEventListener("click", () => {
+    // Заповнюємо модалку відповідними даними
+    fields.forEach((field) => {
+      document.querySelector(`.${field}`).textContent = characters[index][field];
+    });
 
-    modal.querySelector(".modal_name").innerHTML =
-      characters[index].modal_name;
-    modal.querySelector(".modal_gender").innerHTML =
-      characters[index].modal_gender;
-    modal.querySelector(".modal_location").innerHTML =
-      characters[index].modal_location;
-    modal.querySelector(".modal_status").innerHTML =
-      characters[index].modal_status;
-    modal.querySelector(".modal_eye_color").innerHTML =
-      characters[index].modal_eye_color;
-    modal.querySelector(".modal_hair_color").innerHTML =
-      characters[index].modal_hair_color;
-    modal.querySelector(".modal_weapon").innerHTML =
-      characters[index].modal_weapon;
-    modal.querySelector(".modal_work").innerHTML =
-      characters[index].modal_work;
-    modal.querySelector(".modal_actor").innerHTML =
-      characters[index].modal_actor;
+    modal.classList.remove("hidden");
+    setTimeout(() => modal_content.classList.add("active"), 10);
   });
 });
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
+
+// Закриття модалки
+closeBtn.addEventListener("click", () => {
+  modal_content.classList.remove("active");
+  setTimeout(() => modal.classList.add("hidden"), 500);
 });
-modal.addEventListener("click", function (e) {
+
+// Закриття по кліку на фон
+modal.addEventListener("click", (e) => {
   if (e.target === modal) {
-    modal.style.display = "none";
+    modal_content.classList.remove("active");
+    setTimeout(() => modal.classList.add("hidden"), 500);
   }
 });
